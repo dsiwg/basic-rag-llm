@@ -69,8 +69,8 @@ def main():
         Use only the following pieces of context to answer the question. Don't make up any new information:
         {'\n'.join([f' - {chunk}' for chunk, similarity in retrieved_knowledge])}
         '''
-
-        print("Assistant: ", end="", flush=True)
+        print("\nInstruction Prompt: " + instruction_prompt)
+        print("Assistant Answer: ", end="", flush=True)
         for chunk in text_gen_model.create_chat_completion(
             messages = [
                 {'role': 'system', 'content': instruction_prompt},
